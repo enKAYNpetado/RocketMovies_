@@ -5,16 +5,16 @@ class NotesController {
     const { title, description, rating, tags } = request.body
     const user_id = request.user.id
 
-    const { note_id } = await knex("notes").insert({
+    const [note_id] = await knex("notes").insert({
       title,
       description,
       rating,
       user_id,
     })
 
-    const tagsInsert = tags.map((link) => {
+    const tagsInsert = tags.map((name) => {
       return {
-        id,
+        //id,
         note_id,
         name,
         user_id,
@@ -30,7 +30,7 @@ class NotesController {
     const { id } = request.params
 
     const note = await knex("notes").where({ id }).first()
-    const tags = await knex("tags").where({ note_id: id }).orderBy(name)
+    const tags = await knex("tags").where({ note_id: id }).orderBy("name")
 
     return response.json({
       ...note,
@@ -47,7 +47,9 @@ class NotesController {
   }
 
   async index(request, response) {
-    const { title, user_id, tags } = request.query
+    //const { title, user_id, tags } = request.query
+    const { title, tags } = request.query
+    const user_id = request.body.id
 
     let notes
 

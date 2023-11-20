@@ -27,15 +27,15 @@ class UserAvatarController {
     const filename = await diskStorage.saveFile(avatarFilename)
     user.avatar = filename
 
-     await database.run(
-       `UPDATE users SET 
+    await database.run(
+      `UPDATE users SET 
       avatar = ?,
       updated_at = ?
       WHERE id = ?`,
-       [user.avatar, new Date(), user_id]
-     )
+      [user.avatar, new Date(), user_id]
+    )
 
-     return response.json(user)
+    return response.json(user)
   }
 }
 
