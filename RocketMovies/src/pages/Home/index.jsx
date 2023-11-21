@@ -2,16 +2,15 @@ import { Header } from "../../components/Header"
 import { Container, Content, NewNote } from "./styles"
 import { FiPlus } from "react-icons/fi"
 
+
 import { useState, useEffect } from "react"
 import { api } from "../../services/api"
 import { useNavigate } from "react-router-dom"
 
-//import { Section } from "../../components/Section"
 import { Movie } from "../../components/Movie"
 
 export function Home() {
   const [search, setSearch] = useState("")
-  //const [tags, setTags] = useState([])
   const [notes, setNotes] = useState([])
 
   const navigate = useNavigate()

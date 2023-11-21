@@ -6,6 +6,7 @@ export const Container = styled.div`
 
   a {
     color: ${({ theme }) => theme.COLORS.PINK};
+    max-width: 120px;
   }
 
   display: grid;
@@ -18,6 +19,15 @@ export const Container = styled.div`
     grid-area: content;
     overflow-y: scroll;
     padding: 40px 0;
+  }
+
+  .exclude {
+    position: absolute;
+    right: 132px;
+    background: none;
+    border: none;
+    color: ${({ theme }) => theme.COLORS.PINK};
+    font-size: 16px;
   }
 `
 
