@@ -2,7 +2,6 @@ import { Header } from "../../components/Header"
 import { Container, Content, NewNote } from "./styles"
 import { FiPlus } from "react-icons/fi"
 
-
 import { useState, useEffect } from "react"
 import { api } from "../../services/api"
 import { useNavigate } from "react-router-dom"
@@ -24,9 +23,9 @@ export function Home() {
       const response = await api.get(`/notes?title=${search}`)
       setNotes(response.data)
     }
+
     fetchNotes()
   }, [search])
-
   return (
     <Container>
       <Header onChange={(e) => setSearch(e.target.value)} />

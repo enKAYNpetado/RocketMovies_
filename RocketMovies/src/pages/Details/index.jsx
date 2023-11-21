@@ -23,7 +23,7 @@ export function Details() {
   const navigate = useNavigate()
 
   function handleBack() {
-    navigate(-2)
+    navigate(-1)
   }
 
   async function handleRemove() {
@@ -55,7 +55,7 @@ export function Details() {
       {data && (
         <main>
           <Content>
-            <button class="exclude" onClick={handleRemove}>
+            <button className="exclude" onClick={handleRemove}>
               <span>Excluir filme</span>
             </button>
             <Link onClick={handleBack}>
@@ -63,7 +63,7 @@ export function Details() {
               Voltar
             </Link>
             <h1>{data.title}</h1>
-            <div class="stars">
+            <div className="stars">
               {data.rating}
               <FiStar />
               <FiStar />
@@ -72,11 +72,10 @@ export function Details() {
               <FiStar />
             </div>
 
-            <div class="info">
+            <div className="info">
               <img src={avatarURL} alt="foto de perfil" />
               <p>Por {user.name}</p>
               <FiClock />
-            
             </div>
 
             {data.tags && (
