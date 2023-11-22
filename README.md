@@ -1,12 +1,14 @@
 🚀 Technologies
 This project was developed with the following technologies:
 
--Vite;
--ReactJS;
--styled-components;
--React-router-dom;
--Axios;
--LocalStorage;
+ - Vite;
+ - ReactJS;
+ - styled-components;
+ - React-router-dom;
+ - Axios;
+ - LocalStorage;
+
+
 
 🔖 Layout
 
