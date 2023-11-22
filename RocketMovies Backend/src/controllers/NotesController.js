@@ -11,6 +11,7 @@ class NotesController {
       rating,
       user_id,
     })
+    console.log(user_id)
 
     const tagsInsert = tags.map((name) => {
       return {
