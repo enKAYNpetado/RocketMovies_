@@ -5,7 +5,7 @@ import { api } from "../../services/api"
 import { useNavigate } from "react-router-dom"
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg"
 
-export function Header() {
+export function Header({ ...props }) {
   const navigate = useNavigate()
 
   function handleSignOut() {
@@ -24,7 +24,7 @@ export function Header() {
         <h1>RocketMovies</h1>
       </Brand>
 
-      <Input placeholder="Pesquisar pelo título" />
+      <Input type="search" placeholder="Pesquisar pelo título" {...props} />
 
       <Profile to="/profile">
         <div>
@@ -34,10 +34,7 @@ export function Header() {
           </Logout>
         </div>
         <Icon to="/profile">
-          <img
-            src={avatarURL}
-            alt={user.name}
-          />
+          <img src={avatarURL} alt={user.name} />
         </Icon>
       </Profile>
     </Container>

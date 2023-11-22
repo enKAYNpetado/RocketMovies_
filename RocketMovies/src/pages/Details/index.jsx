@@ -4,6 +4,7 @@ import { FiArrowLeft } from "react-icons/fi"
 import { FiClock } from "react-icons/fi"
 import { Container, Content, Section2 } from "./styles"
 import { FiStar } from "react-icons/fi"
+import { Stars } from "../../components/Stars"
 import { Link } from "react-router-dom"
 
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg"
@@ -15,12 +16,20 @@ import { api } from "../../services/api"
 import { useAuth } from "../../hooks/auth"
 
 export function Details() {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState({})
 
   const { user } = useAuth()
 
   const params = useParams()
   const navigate = useNavigate()
+
+   const created = new Date(data.created_at)
+   created.setTime(created.getTime() - 3 * 3600000)
+   const day = created.getDate()
+   const month = created.toLocaleString("default", { month: "2-digit" })
+   const year = String(created.getFullYear()).slice(-2)
+   const hours = String(created.getHours()).padStart(2, "0")
+   const minutes = String(created.getMinutes()).padStart(2, "0")
 
   function handleBack() {
     navigate(-1)
@@ -63,19 +72,15 @@ export function Details() {
               Voltar
             </Link>
             <h1>{data.title}</h1>
-            <div className="stars">
-              {data.rating}
-              <FiStar />
-              <FiStar />
-              <FiStar />
-              <FiStar />
-              <FiStar />
-            </div>
+            <Stars rating={data.rating} />
 
             <div className="info">
               <img src={avatarURL} alt="foto de perfil" />
               <p>Por {user.name}</p>
               <FiClock />
+              <p>
+                {day}/{month}/{year} às {hours}:{minutes}
+              </p>
             </div>
 
             {data.tags && (
