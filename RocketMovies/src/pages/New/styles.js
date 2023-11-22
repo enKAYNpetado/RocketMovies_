@@ -15,7 +15,7 @@ export const Container = styled.div`
     overflow-y: auto;
 
     header a {
-     color: ${({theme}) => theme.COLORS.PINK};
+      color: ${({ theme }) => theme.COLORS.PINK};
     }
   }
 

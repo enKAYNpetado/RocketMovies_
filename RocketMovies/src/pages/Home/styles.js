@@ -9,7 +9,9 @@ export const Container = styled.div`
   grid-template-areas:
     " header"
     " content";
+
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+
 `
 
 export const Content = styled.div`

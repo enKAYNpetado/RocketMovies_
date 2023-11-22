@@ -31,4 +31,19 @@ export default createGlobalStyle`
   button:hover, a:hover {
     filter: brightness(0.9);
   }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: ${({ theme }) => theme.COLORS.PINK};
+  border-radius: 10px;
+}
 `

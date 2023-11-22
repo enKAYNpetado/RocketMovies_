@@ -8,6 +8,8 @@ export const Container = styled.div`
     isNew ? "transparent" : theme.COLORS.BACKGROUND_700};
   color: ${({ theme }) => theme.COLORS.GRAY_300};
 
+  max-width: 385px;
+
   //width: ${({ isNew }) => (isNew ? "100%" : "180px")};
 
   border: ${({ theme, isNew }) =>

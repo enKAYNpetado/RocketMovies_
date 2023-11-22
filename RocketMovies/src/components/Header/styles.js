@@ -50,7 +50,7 @@ export const Profile = styled.div`
     strong {
       color: ${({ theme }) => theme.COLORS.WHITE};
       font-size: 14px;
-      text-align: right
+      text-align: right;
     }
   }
 `
